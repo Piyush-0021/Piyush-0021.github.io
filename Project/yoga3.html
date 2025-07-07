@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitLife 28-Day Yoga Journey</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      color: #333;
+      margin: 0;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .menu-icon {
+      font-size: 30px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      color: #fff;
+    }
+
+    .side-nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(53, 52, 52, 0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .side-nav a {
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 22px;
+      color: #fff;
+      display: block;
+    }
+
+    .side-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .side-nav.open {
+      width: 250px;
+    }
+
+    .asana-category {
+      padding: 30px 20px;
+    }
+
+    .asana-category h2 {
+      margin: 20px 0 10px;
+      color: #e67e22;
+    }
+
+    .asana-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .asana-list li {
+      background: #fff;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      text-align: center;
+    }
+
+    .day_schedule {
+      text-align: center;
+      margin: 40px 10px 20px;
+      color: #2c3e50;
+    }
+
+    #yoga-schedule {
+      padding: 20px;
+    }
+
+    .day-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .day-left, .day-right {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    .day-left {
+      background-color: #fafafa;
+      border-right: 2px solid #ccc;
+    }
+
+    .day-left h2 {
+      color: #e67e22;
+      margin-bottom: 10px;
+    }
+
+    .day-left ul {
+      list-style: none;
+    }
+
+    .day-left li {
+      background: #f2f2f2;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .day-right p {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        color: #ccc;
+      }
+      .side-nav a {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hamburger Menu Icon -->
+<div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+
+<!-- Sliding Navigation -->
+<nav id="sideNav" class="side-nav">
+  <a href="index.php">Home</a>
+  <a href="gym2.html">Training</a>
+  <a href="diet.html">Diet</a>
+  <a href="index.php#about">About Us</a>
+</nav>
+
+<header>
+  <h1>FitLife - Complete Yoga Asanas List</h1>
+  <p>Discover Yoga Asanas categorized for ease and flow</p>
+</header>
+
+<section class="asana-category">
+  <h2>Standing Asanas</h2>
+  <ul class="asana-list">
+    <li>Tadasana</li>
+    <li>Vrikshasana</li>
+    <li>Utkatasana</li>
+    <li>Trikonasana</li>
+  </ul>
+
+  <h2>Seated Asanas</h2>
+  <ul class="asana-list">
+    <li>Baddha Konasana</li>
+    <li>Dandasana</li>
+    <li>Paschimottanasana</li>
+    <li>Padmasana</li>
+  </ul>
+
+  <h2>Balancing Asanas</h2>
+  <ul class="asana-list">
+    <li>Natarajasana</li>
+    <li>Garudasana</li>
+    <li>Kakasana</li>
+    <li>Sirsasana</li>
+  </ul>
+</section>
+
+<h1 class="day_schedule">Practice 3 Asanas a Day for a Complete Yoga Experience</h1>
+
+<div id="yoga-schedule"></div>
+
+<footer>
+  © 2025 FitLife. All rights reserved.
+</footer>
+
+<script>
+  function toggleNav() {
+    const sideNav = document.getElementById("sideNav");
+    sideNav.classList.toggle("open");
+  }
+
+  const days = [
+    { asanas: ["Tadasana", "Vrikshasana", "Utkatasana"], details: [
+      { duration: "2 min", breath: "Deep", release: "Slowly release legs", position: "Standing" },
+      { duration: "2 min", breath: "Calm", release: "Relax and return", position: "Standing" },
+      { duration: "1 min", breath: "Normal", release: "Unbend knees slowly", position: "Standing" }
+    ]},
+    { asanas: ["Trikonasana", "Virabhadrasana I", "Virabhadrasana II"], details: [
+      { duration: "3 min", breath: "Deep", release: "Return to center", position: "Standing" },
+      { duration: "2 min", breath: "Focused", release: "Lower arms gently", position: "Standing" },
+      { duration: "2 min", breath: "Normal", release: "Relax arms", position: "Standing" }
+    ]}
+    // Add more days as needed
+  ];
+
+  const scheduleContainer = document.getElementById('yoga-schedule');
+
+  days.forEach((day, i) => {
+    const container = document.createElement('div');
+    container.className = 'day-container';
+
+    const left = document.createElement('div');
+    left.className = 'day-left';
+    left.innerHTML = `<h2>Day ${i + 1}</h2><ul>` +
+      day.asanas.map(asana => `<li>${asana}</li>`).join('') +
+      '</ul>';
+
+    const right = document.createElement('div');
+    right.className = 'day-right';
+    right.innerHTML = day.details.map((d, index) =>
+      `<p><strong>${day.asanas[index]}</strong><br>Duration: ${d.duration}<br>Breathing: ${d.breath}<br>Release: ${d.release}<br>Position: ${d.position}</p>`
+    ).join('');
+
+    container.appendChild(left);
+    container.appendChild(right);
+    scheduleContainer.appendChild(container);
+  });
+</script>
+</body>
+</html>
